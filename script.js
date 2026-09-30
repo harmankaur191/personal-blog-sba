@@ -68,7 +68,6 @@ function submitBlog(event){
         blogTitle = blogTitleInput.value;
         blogContent = blogContentInput.value;
         timestamp = new Date().toLocaleString();
-        console.log(timestamp);
         blogInfo.push({id:blogInfo.length+1,Title:blogTitle, Content:blogContent,Timestamp:timestamp});
         console.log(blogInfo);
         const blogItem = document.createElement('LI');
@@ -94,13 +93,24 @@ function submitBlog(event){
 
 function editBlog(event){
     const item = event.target.parentNode;
-    console.log("-----------");
-    console.log(item);
     const formHeading = document.querySelector('h1');
     formHeading.innerText = "Edit Blog";
-    blogTitleInput.value= item.querySelector('H2').innerText;
+    const searchheader = item.querySelector('H2').innerText;
+    blogTitleInput.value= searchheader;
     blogContentInput.value = item.querySelector('p').innerText;
     item.remove();
-    
+    //remove item from array
+    for(let i=0;i<blogInfo.length-1;i++){
+        if(searchheader===blogInfo[i].Title){
+            const result=blogInfo[i];
+            console.log(result);
+            blogInfo.splice(i,1);
+
+        }else{
+            console.log("error")
+            console.log(blogInfo[i].Title);
+        }
+    }
+
     
 }
