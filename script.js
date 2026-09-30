@@ -7,7 +7,8 @@ const contentMessageSpan = document.getElementById('contentMessageSpan');
 const blogForm = document.getElementById('blog-form');
 let editblogBtn;
 let blogTitle,blogContent;
-let BlogInfo=[];
+let blogInfo=[];
+let timestamp;
 
 
 
@@ -18,7 +19,7 @@ blogTitleInput.addEventListener('input',function(event){
         console.log('False');
         return;
     }else{
-        blogTitle = blogTitleInput.value;
+       
         console.log(blogTitle);
     }
 });
@@ -28,7 +29,7 @@ blogContentInput.addEventListener('input',function(event){
     if(!validateField(blogContentInput)){
         return;
     }else{
-        blogContent = blogContentInput.value;
+       
         console.log(blogContent);
     }
 
@@ -63,7 +64,13 @@ function submitBlog(event){
     if(!validateField(blogTitleInput)|| (!validateField(blogContentInput))){
         console.log("Error submitting Form")
     }else{
-        BlogInfo.push({Title:blogTitle, Content:blogContent})
+
+        blogTitle = blogTitleInput.value;
+        blogContent = blogContentInput.value;
+        timestamp = new Date().toLocaleString();
+        console.log(timestamp);
+        blogInfo.push({id:blogInfo.length+1,Title:blogTitle, Content:blogContent,Timestamp:timestamp});
+        console.log(blogInfo);
         const blogItem = document.createElement('LI');
         const blogHeader = document.createElement('H2');
         blogHeader.style.fontSize="23px";
@@ -78,9 +85,22 @@ function submitBlog(event){
         blogItem.appendChild(editblogBtn);
         blogList.appendChild(blogItem);
         blogForm.reset();
+        editblogBtn.addEventListener('click',editBlog);
     }
 
 }
 
-editblogBtn.addEventListener('click',editBlog);
 
+
+function editBlog(event){
+    const item = event.target.parentNode;
+    console.log("-----------");
+    console.log(item);
+    const formHeading = document.querySelector('h1');
+    formHeading.innerText = "Edit Blog";
+    blogTitleInput.value= item.querySelector('H2').innerText;
+    blogContentInput.value = item.querySelector('p').innerText;
+    item.remove();
+    
+    
+}
