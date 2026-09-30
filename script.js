@@ -5,7 +5,7 @@ const blogList = document.getElementById('blog-list');
 const titleMessageSpan= document.getElementById('titleMessage');
 const contentMessageSpan = document.getElementById('contentMessageSpan');
 const blogForm = document.getElementById('blog-form');
-let editblogBtn;
+let editblogBtn, deleteblogBtn;
 let blogTitle,blogContent;
 let blogInfo=[];
 let timestamp;
@@ -69,6 +69,8 @@ function submitBlog(event){
         blogContent = blogContentInput.value;
         timestamp = new Date().toLocaleString();
         blogInfo.push({id:blogInfo.length+1,Title:blogTitle, Content:blogContent,Timestamp:timestamp});
+        
+        
         console.log(blogInfo);
         const blogItem = document.createElement('LI');
         const blogHeader = document.createElement('H2');
@@ -79,12 +81,17 @@ function submitBlog(event){
         editblogBtn = document.createElement('input');
         editblogBtn.type="button";
         editblogBtn.value='EDIT';
+        deleteblogBtn = document.createElement('input');
+        deleteblogBtn.type="button";
+        deleteblogBtn.value='DELETE';
         blogItem.appendChild(blogHeader);
         blogItem.appendChild(blogPara);
         blogItem.appendChild(editblogBtn);
+        blogItem.appendChild(deleteblogBtn);
         blogList.appendChild(blogItem);
         blogForm.reset();
         editblogBtn.addEventListener('click',editBlog);
+        deleteblogBtn.addEventListener('click',deleteBlog);
     }
 
 }
@@ -114,3 +121,21 @@ function editBlog(event){
 
     
 }
+function deleteBlog(event){
+    const item = event.target.parentNode;
+    const searchheader = item.querySelector('H2').innerText;
+    item.remove();
+      for(let i=0;i<blogInfo.length-1;i++){
+        if(searchheader===blogInfo[i].Title){
+            const result=blogInfo[i];
+            console.log(result);
+            blogInfo.splice(i,1);
+
+        }else{
+            console.log("error")
+            console.log(blogInfo[i].Title);
+        }
+    }
+
+}
+
