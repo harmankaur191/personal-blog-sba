@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <form class="blog-form" id="blog-form" novalidate>
+        <h1>Create your Blog</h1>
+        <div>
+            <label>Blog Title</label>
+            <input type="text" placeholder="Blog Title" id="blogTitle" required="" minlength="5" maxlength="15"></input>
+        <span id="titleMessage"></span>
+        </div>
+        <div>
+             <label>Blog Content</label>
+            <textarea id="blogContent" placeholder="Blog Content" required="" required="" minlength="10" maxlength="500"></textarea>
+            <span id = "contentMessage"></span>
+        </div>
+        <button id="submitBtn">SUBMIT</button>
+    </form>
+    <ul id="blog-list"></ul>
+</body>
+</html>

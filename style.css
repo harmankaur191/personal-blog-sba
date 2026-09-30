@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(174, 167, 174);
+}
+
+input{
+    border: 2px solid black;
+    border-radius: 5px;
+    height:2vh;
+    font-size: 18px;
+}
+textarea{
+    border: 2px solid black;
+     border-radius: 5px; height:max-content;
+     font-size: 18px;
+}
+
+.blog-form{
+    width:fit-content;
+    height: max-content;
+    padding: 2%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: left;
+    align-items: left;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+}
+.blog-form div{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    background-color: black;
+    color:white;
+    padding:10px;
+    border-radius: 5px;
+}
+label{
+    font-size: 20px;
+}
+ul li{
+     padding:2%;
+    list-style: none;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+  
+    
+}
+
+ul{
+    padding:2%;
+    
+   
+}
