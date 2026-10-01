@@ -33,6 +33,9 @@ blogContentInput.addEventListener('input', function (event) {
     }
 
 });
+
+
+//input field validations
 function validateField(targetInput) {
 
     if (!targetInput.validity.valid || targetInput.validity.valueMissing) {
@@ -57,7 +60,7 @@ function validateField(targetInput) {
     }
 }
 submitBtn.addEventListener('click', submitBlog);
-
+// submitting Blog
 function submitBlog(event) {
     event.preventDefault()
     if (!validateField(blogTitleInput) || (!validateField(blogContentInput))) {
@@ -100,7 +103,7 @@ function submitBlog(event) {
 }
 
 
-
+//Editing blog
 function editBlog(event) {
     const item = event.target.parentNode;
     const formHeading = document.querySelector('h1');
@@ -128,6 +131,8 @@ function editBlog(event) {
 
 
 }
+
+//deleting the blog
 function deleteBlog(event) {
     const item = event.target.parentNode;
     const searchheader = item.querySelector('H2').innerText;
@@ -149,10 +154,10 @@ function deleteBlog(event) {
 
 }
 
-
+//creating elements on page refresh/reload
 function createBlogDOMElement(blogObj) {
     const blogItem = document.createElement('LI');
-    blogItem.setAttribute('data-id', blogObj.id); // Track item by unique ID instead of heading text
+    blogItem.setAttribute('data-id', blogObj.id); 
     
     const blogHeader = document.createElement('H2');
     blogHeader.style.fontSize = "30px";
