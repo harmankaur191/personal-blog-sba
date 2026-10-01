@@ -154,7 +154,7 @@ function createBlogDOMElement(blogObj) {
     blogItem.setAttribute('data-id', blogObj.id); // Track item by unique ID instead of heading text
     
     const blogHeader = document.createElement('H2');
-    blogHeader.style.fontSize = "23px";
+    blogHeader.style.fontSize = "30px";
     blogHeader.textContent = blogObj.Title;
     
     const blogPara = document.createElement('P');
