@@ -7,7 +7,7 @@ const contentMessageSpan = document.getElementById('contentMessageSpan');
 const blogForm = document.getElementById('blog-form');
 let editblogBtn, deleteblogBtn;
 let blogTitle, blogContent;
-//let blogInfo = [];
+
 let timestamp;
 let blogInfo = JSON.parse(localStorage.getItem('blog')) || [];
 
@@ -148,4 +148,33 @@ function deleteBlog(event) {
 
 }
 
+
+function createBlogDOMElement(blogObj) {
+    const blogItem = document.createElement('LI');
+    blogItem.setAttribute('data-id', blogObj.id); // Track item by unique ID instead of heading text
+    
+    const blogHeader = document.createElement('H2');
+    blogHeader.style.fontSize = "23px";
+    blogHeader.textContent = blogObj.Title;
+    
+    const blogPara = document.createElement('P');
+    blogPara.textContent = blogObj.Content;
+    
+    const editBtn = document.createElement('input');
+    editBtn.type = "button";
+    editBtn.value = 'EDIT';
+    
+    const deleteBtn = document.createElement('input');
+    deleteBtn.type = "button";
+    deleteBtn.value = 'DELETE';
+    
+    blogItem.appendChild(blogHeader);
+    blogItem.appendChild(blogPara);
+    blogItem.appendChild(editBtn);
+    blogItem.appendChild(deleteBtn);
+    blogList.appendChild(blogItem);
+
+    editBtn.addEventListener('click', editBlog);
+    deleteBtn.addEventListener('click', deleteBlog);
+}
 
