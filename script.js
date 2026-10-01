@@ -11,7 +11,7 @@ let blogTitle, blogContent;
 let timestamp;
 let blogInfo = JSON.parse(localStorage.getItem('blog')) || [];
 
-
+renderSavedBlogs();
 blogTitleInput.addEventListener('input', function (event) {
     event.preventDefault();
     if (!validateField(blogTitleInput)) {
@@ -178,3 +178,8 @@ function createBlogDOMElement(blogObj) {
     deleteBtn.addEventListener('click', deleteBlog);
 }
 
+
+function renderSavedBlogs() {
+    blogList.innerHTML = "";
+    blogInfo.forEach(blog => createBlogDOMElement(blog));
+}
