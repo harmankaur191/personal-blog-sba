@@ -117,6 +117,7 @@ function editBlog(event) {
 
             blogInfo.splice(i, 1);
             localStorage.setItem('blog', JSON.stringify(blogInfo));
+           
             break;
 
         } else {

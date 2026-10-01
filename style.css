@@ -5,7 +5,7 @@ body{
 input{
     border: 2px solid black;
     border-radius: 5px;
-    height:2vh;
+    height:3vh;
     font-size: 18px;
 }
 textarea{
@@ -25,17 +25,37 @@ textarea{
     justify-content: left;
     align-items: left;
     border-radius: 10px;
+    margin-left:2%;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+}
+.blog-form input.invalid {
+  border-color: red;
+  background-color: #ffe0e0;
+}
+.blog-form input.valid {
+  border-color: green;
+  
 }
 .blog-form div{
     display: flex;
     flex-direction: column;
+    
+}
+span {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 3px;
+  display: block;
+  min-height: 1em;
 }
 button{
     background-color: black;
     color:white;
-    padding:10px;
+    padding:20px;
     border-radius: 5px;
+    width:fit-content;
+    align-self: center;
+    
 }
 label{
     font-size: 20px;
@@ -43,6 +63,7 @@ label{
 ul li{
      padding:2%;
     list-style: none;
+    
     background-color: white;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
     border-radius: 10px;
